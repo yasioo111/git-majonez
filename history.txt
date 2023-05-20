@@ -1,0 +1,156 @@
+tomek@tomek-VirtualBox:~/cs/git$ mkdir git-majonez
+tomek@tomek-VirtualBox:~/cs/git$ cd git-majonez/
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ vi main.cpp
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ vi main.cpp
+\tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/tomek/cs/git/git-majonez/.git/
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git branch
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git branch -l
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git branch -f
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	main.cpp
+
+nothing added to commit but untracked files present (use "git add" to track)
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git add main.cpp 
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git commit -m "Initial commit"
+[master (root-commit) 8f7e999] Initial commit
+ 1 file changed, 6 insertions(+)
+ create mode 100644 main.cpp
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ vi main.cpp 
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   main.cpp
+
+no changes added to commit (use "git add" and/or "git commit -a")
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git add main.cpp 
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   main.cpp
+
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git commit -m "Farewell changed"
+[master dd661da] Farewell changed
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git remote add origin https://github.com/yasioo111/git-majonez.git
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git puch -u origin main
+git: 'puch' is not a git command. See 'git --help'.
+
+The most similar command is
+	push
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/yasioo111/git-majonez.git'
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git push -u origin master
+Username for 'https://github.com': yasioo111
+Password for 'https://yasioo111@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/yasioo111/git-majonez.git/'
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git push -u origin master
+Username for 'https://github.com': yasioo111
+Password for 'https://yasioo111@github.com': 
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 597 bytes | 597.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/yasioo111/git-majonez.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git branch
+* master
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git branch cs
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git branch
+  cs
+* master
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git checkout cs 
+Switched to branch 'cs'
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git log
+commit dd661da74709d6b6cb31eadf6d7d2ed5accf0a8a (HEAD -> cs, origin/master, master)
+Author: Tomasz Fornalczyk <janko111@gmail.com>
+Date:   Sat May 20 21:07:46 2023 +0200
+
+    Farewell changed
+
+commit 8f7e99980292f70a1d00fd3269ab0be3d50e583d
+Author: Tomasz Fornalczyk <janko111@gmail.com>
+Date:   Sat May 20 21:06:45 2023 +0200
+
+    Initial commit
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git reset --hard 8f7e999
+HEAD is now at 8f7e999 Initial commit
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git log
+commit 8f7e99980292f70a1d00fd3269ab0be3d50e583d (HEAD -> cs)
+Author: Tomasz Fornalczyk <janko111@gmail.com>
+Date:   Sat May 20 21:06:45 2023 +0200
+
+    Initial commit
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ vi main.cpp 
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git commit -m "Greetings"
+On branch cs
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   main.cpp
+
+no changes added to commit (use "git add" and/or "git commit -a")
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git add main.cpp 
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git commit -m "Greetings"
+[cs 0e17817] Greetings
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git log
+commit 0e17817026b129b718f83ed3c30eaec0c2797126 (HEAD -> cs)
+Author: Tomasz Fornalczyk <janko111@gmail.com>
+Date:   Sat May 20 21:25:41 2023 +0200
+
+    Greetings
+
+commit 8f7e99980292f70a1d00fd3269ab0be3d50e583d
+Author: Tomasz Fornalczyk <janko111@gmail.com>
+Date:   Sat May 20 21:06:45 2023 +0200
+
+    Initial commit
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git push origin cs
+Username for 'https://github.com': yasioo111
+Password for 'https://yasioo111@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 337 bytes | 337.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'cs' on GitHub by visiting:
+remote:      https://github.com/yasioo111/git-majonez/pull/new/cs
+remote: 
+To https://github.com/yasioo111/git-majonez.git
+ * [new branch]      cs -> cs
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git checkout master 
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ git merge cs
+Auto-merging main.cpp
+CONFLICT (content): Merge conflict in main.cpp
+Automatic merge failed; fix conflicts and then commit the result.
+tomek@tomek-VirtualBox:~/cs/git/git-majonez$ vi main.cpp
